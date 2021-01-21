@@ -1,7 +1,5 @@
-kontaknum = {
-        "Nama: " : "Aca",
-        "No Telepon: " : "081122288811"
-}
+NamaKontak = []
+Nomor = []
 
 def menu():
     print("--Menu--")
@@ -11,8 +9,11 @@ def menu():
     print(" ")
 
 def kontak():
-    for x in kontaknum:
-        print(x, kontaknum[x])
+    names = len(NamaKontak)
+    for i in range(names):
+        print("Nama: {}".format(NamaKontak[i]))
+        print("No Telepon: {}".format(Nomor[i]))
+
 
 print("Selamat Datang!")
 menu()
@@ -21,17 +22,21 @@ while pilih != 3:
     print(" ")
     if pilih == 1:
         print("Daftar Kontak")
-        kontak()
-        print("\n")
+        if len(NamaKontak) == 0:
+            print("Kontak belum tersedia")
+            print("\n")
+        else:
+            kontak()
+            print("\n")
         menu()
     elif pilih == 2:
         print("Tambahkan Kontak")
-        Nama = input("Masukkan nama: ")
-        No = input("Masukkan nomor telepon: ")
-
-        kontaknum["Nama :"] = Nama
-        kontaknum["No Telepon :"] = No
+        Nama = input("Masukkan Nama: ")
+        No = input("Masukkan No Telepon: ")
         
+        NamaKontak.append(Nama)
+        Nomor.append(No)
+
         print("Kontak berhasil ditambahkan!")
         print("\n")
         menu()
